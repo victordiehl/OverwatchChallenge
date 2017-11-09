@@ -45,6 +45,7 @@
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="searchUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k8I-bK-iGX"/>
+                                            <segue destination="VuO-aj-6gm" kind="show" identifier="goSecondScreen" id="rbr-gj-JMC"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Digite seu nome.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1A-6q-5tB">
@@ -77,6 +78,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-182" y="-150"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bar-UI-IWX">
+            <objects>
+                <viewController id="VuO-aj-6gm" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n56-Tb-7U9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="cir-DS-PJd"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="STZ-xI-Hka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="495" y="-152"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RNK-ru-5aA">
