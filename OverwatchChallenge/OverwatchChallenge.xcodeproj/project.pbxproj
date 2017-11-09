@@ -57,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				1F1DA4021FB1E4B000EBBC52 /* AppDelegate.swift */,
+				7065E1981FB47FF2001478F9 /* Player.swift */,
 				1F1DA4041FB1E4B000EBBC52 /* ViewController.swift */,
 				1F1DA4061FB1E4B000EBBC52 /* Main.storyboard */,
 				537C43A91FB48545001F70C7 /* secondScreenViewController.swift */,
@@ -141,6 +142,7 @@
 			files = (
 				537C43AA1FB48545001F70C7 /* secondScreenViewController.swift in Sources */,
 				1F1DA4051FB1E4B000EBBC52 /* ViewController.swift in Sources */,
+				7065E1991FB47FF2001478F9 /* Player.swift in Sources */,
 				1F1DA4031FB1E4B000EBBC52 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
