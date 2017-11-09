@@ -9,10 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var imageIcon: UIImageView!
-    @IBOutlet weak var appName: UILabel!
-    @IBOutlet weak var userName: UITextField!
+    
+    @IBOutlet weak var aplicationIcon: UIImageView!
+    @IBOutlet weak var aplicationName: UILabel!
+    @IBOutlet weak var userTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +42,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func buttonSearch(_ sender: Any) {
+    @IBAction func searchUser(_ sender: Any) {
     }
-    //Teste
-
+    
 
 }
 
