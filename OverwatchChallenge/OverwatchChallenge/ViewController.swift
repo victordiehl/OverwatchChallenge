@@ -13,6 +13,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let urlString = "https://owapi.net/api/v3/u/TheMrMachine-1431/stats"
+        guard let url = URL(string: urlString) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data else { return }
+         
+//            let dataAsString = String(data: data, encoding: .utf8)
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+                
+                print(json)
+            } catch let jsonErr {
+                
+            }
+
+        }.resume()
     }
 
     override func didReceiveMemoryWarning() {
