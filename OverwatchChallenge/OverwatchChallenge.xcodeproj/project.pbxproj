@@ -12,7 +12,8 @@
 		1F1DA4081FB1E4B000EBBC52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F1DA4061FB1E4B000EBBC52 /* Main.storyboard */; };
 		1F1DA40A1FB1E4B000EBBC52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F1DA4091FB1E4B000EBBC52 /* Assets.xcassets */; };
 		1F1DA40D1FB1E4B000EBBC52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F1DA40B1FB1E4B000EBBC52 /* LaunchScreen.storyboard */; };
-		537C43AC1FB489DA001F70C7 /* secondScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537C43AB1FB489DA001F70C7 /* secondScreenViewController.swift */; };
+		ABE5186F1FB6239A0097B2CB /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5186E1FB6239A0097B2CB /* StatsViewController.swift */; };
+		ABE518711FB623B70097B2CB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE518701FB623B70097B2CB /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +24,8 @@
 		1F1DA4091FB1E4B000EBBC52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F1DA40C1FB1E4B000EBBC52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F1DA40E1FB1E4B000EBBC52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		537C43AB1FB489DA001F70C7 /* secondScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = secondScreenViewController.swift; path = ../secondScreenViewController.swift; sourceTree = "<group>"; };
+		ABE5186E1FB6239A0097B2CB /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		ABE518701FB623B70097B2CB /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,8 @@
 			children = (
 				1F1DA4021FB1E4B000EBBC52 /* AppDelegate.swift */,
 				1F1DA4041FB1E4B000EBBC52 /* ViewController.swift */,
-				537C43AB1FB489DA001F70C7 /* secondScreenViewController.swift */,
+				ABE5186E1FB6239A0097B2CB /* StatsViewController.swift */,
+				ABE518701FB623B70097B2CB /* Player.swift */,
 				1F1DA4061FB1E4B000EBBC52 /* Main.storyboard */,
 				1F1DA4091FB1E4B000EBBC52 /* Assets.xcassets */,
 				1F1DA40B1FB1E4B000EBBC52 /* LaunchScreen.storyboard */,
@@ -139,8 +142,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				537C43AC1FB489DA001F70C7 /* secondScreenViewController.swift in Sources */,
+				ABE518711FB623B70097B2CB /* Player.swift in Sources */,
 				1F1DA4051FB1E4B000EBBC52 /* ViewController.swift in Sources */,
+				ABE5186F1FB6239A0097B2CB /* StatsViewController.swift in Sources */,
 				1F1DA4031FB1E4B000EBBC52 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +283,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VXU4QL7U6A;
 				INFOPLIST_FILE = OverwatchChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.victordiehl.OverwatchChallenge;
@@ -293,6 +298,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VXU4QL7U6A;
 				INFOPLIST_FILE = OverwatchChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.victordiehl.OverwatchChallenge;

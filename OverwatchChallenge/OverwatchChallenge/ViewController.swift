@@ -16,27 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var helpTextView: UITextView!
     
     override func viewDidLoad() {
-        // Do any additional setup after loading the view, typically from a nib.
-        navigationController?.navigationBar.barTintColor = UIColor.clear
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bgoverwatch1x.png")!)
-       
-        let urlString = "https://owapi.net/api/v3/u/TheMrMachine-1431/stats"
-        guard let url = URL(string: urlString) else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data else { return }
-         
-//            let dataAsString = String(data: data, encoding: .utf8)
-            
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-                
-                print(json)
-            } catch let jsonErr {
-                
-            }
-
-        }.resume()
+        navBar()
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +26,14 @@ class ViewController: UIViewController {
     
     @IBAction func searchUser(_ sender: Any) {
     }
-    
+
+    func navBar() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        self.navigationController?.view.tintColor = #colorLiteral(red: 1, green: 0.6123600006, blue: 0.009494521655, alpha: 1)
+    }
 
 }
 
