@@ -16,8 +16,13 @@ class StatsViewController: UIViewController {
 
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var levelImage: UIImageView!
-
+    @IBOutlet weak var comprankImage: UIImageView!
+    
+    @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var gamesWonLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var prestigeLabel: UILabel!
+    @IBOutlet weak var comprankLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +38,10 @@ class StatsViewController: UIViewController {
                 let result = try JSONDecoder().decode(Overwatch.self, from: data)
                 DispatchQueue.main.async {
 
-//                    self.gamesWonLabel.text = result.us?.stats.competitive.game_stats.games_won?.description
+                    self.gamesWonLabel.text = result.us?.stats.competitive.game_stats.games_won?.description
 
-//                    self.downloadAvatarImageFromURL(avatar: (result.us?.stats.competitive.overall_stats.avatar)!)
-//                    self.downloadLevelImageFromURL(level: (result.us?.stats.competitive.overall_stats.rank_image)!)
+                    self.downloadAvatarImageFromURL(avatar: (result.us?.stats.competitive.overall_stats.avatar)!)
+                    self.downloadLevelImageFromURL(level: (result.us?.stats.competitive.overall_stats.rank_image)!)
 
 
                     //                    self.compStats.append((result.us?.stats.competitive.game_stats.multikills?.description)!)
