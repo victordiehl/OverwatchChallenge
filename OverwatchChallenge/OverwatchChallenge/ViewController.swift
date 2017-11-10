@@ -17,7 +17,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         // Do any additional setup after loading the view, typically from a nib.
-        
+        navigationController?.navigationBar.barTintColor = UIColor.clear
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bgoverwatch1x.png")!)
+       
         let urlString = "https://owapi.net/api/v3/u/TheMrMachine-1431/stats"
         guard let url = URL(string: urlString) else { return }
         
