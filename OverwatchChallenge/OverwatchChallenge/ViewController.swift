@@ -11,11 +11,11 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var aplicationIcon: UIImageView!
-    @IBOutlet weak var aplicationName: UILabel!
     @IBOutlet weak var userTextField: UITextField!
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var helpTextView: UITextView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         let urlString = "https://owapi.net/api/v3/u/TheMrMachine-1431/stats"

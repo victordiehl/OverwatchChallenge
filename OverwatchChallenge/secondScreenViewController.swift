@@ -12,6 +12,17 @@ class secondScreenViewController: UIViewController {
 
     @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var userAvatar: UIImageView!
+    @IBOutlet weak var gamesWonLabel: UILabel!
+    @IBOutlet weak var gamesTrophy: UIImageView!
+    @IBOutlet weak var wonLabel: UILabel!
+    @IBOutlet weak var lostLabel: UILabel!
+    @IBOutlet weak var tieLabel: UILabel!
+    @IBOutlet weak var rankImage: UIImageView!
+    @IBOutlet weak var rankPoints: UILabel!
+    @IBOutlet weak var prestigeLabel: UILabel!
+    @IBOutlet weak var levelImage: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
