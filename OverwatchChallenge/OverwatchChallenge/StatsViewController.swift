@@ -11,13 +11,14 @@ import UIKit
 class StatsViewController: UIViewController {
 
     var playerID: String = "zza-11231"
-    var compStats = [String]()
-    var quickStats = [String]()
+    var player: PlayerStats!
 
+    @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var levelImage: UIImageView!
     @IBOutlet weak var comprankImage: UIImageView!
-    
+
     @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var gamesWonLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
@@ -27,7 +28,10 @@ class StatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        loadPlayerData()
+    }
 
+    func loadPlayerData() {
         let urlString = "https://owapi.net/api/v3/u/\(playerID)/stats"
         guard let url = URL(string: urlString) else { return }
 
@@ -35,61 +39,18 @@ class StatsViewController: UIViewController {
             guard let data = data else { return }
 
             do {
-                let result = try JSONDecoder().decode(Overwatch.self, from: data)
+                let result = try JSONDecoder().decode(PlayerStats.self, from: data)
+                self.player = result
+
                 DispatchQueue.main.async {
-
-                    self.gamesWonLabel.text = result.us?.stats.competitive.game_stats.games_won?.description
-
                     self.downloadAvatarImageFromURL(avatar: (result.us?.stats.competitive.overall_stats.avatar)!)
                     self.downloadLevelImageFromURL(level: (result.us?.stats.competitive.overall_stats.rank_image)!)
 
-
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.multikills?.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.medals_bronze.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.medals_silver.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.medals_gold.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.objective_kills.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.time_played.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.games_played?.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.games_lost?.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.games_tied?.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.final_blows?.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.offensive_assists?.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.games_won?.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.eliminations.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.solo_kills.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.kill_streak_best.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.deaths.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.kpd.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.multikill_best?.description)!)
-                    //                    self.compStats.append((result.us?.stats.competitive.game_stats.medals.description)!)
-                    //
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.multikills?.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.medals_bronze.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.medals_silver.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.medals_gold.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.objective_kills.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.time_played.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.games_played?.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.games_lost?.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.games_tied?.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.final_blows?.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.offensive_assists?.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.games_won?.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.eliminations.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.solo_kills.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.kill_streak_best.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.deaths.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.kpd.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.multikill_best?.description)!)
-                    //                    self.quickStats.append((result.us?.stats.competitive.game_stats.medals.description)!)
-
-
-
+                    self.tableView.reloadData()
                 }
-                //                print("result:", result.us?.stats.quickplay.game_stats.games_won)
-            } catch let jsonErr {
-                print(jsonErr)
+
+            } catch let jsonError {
+                print(jsonError)
             }
             }.resume()
     }
@@ -97,7 +58,7 @@ class StatsViewController: UIViewController {
     func downloadAvatarImageFromURL(avatar: String) {
         let session = URLSession(configuration: .default)
         let imageURL = URL(string: avatar)
-        let getImage = session.dataTask(with: imageURL!) { (data, response, error) in
+        session.dataTask(with: imageURL!) { (data, response, error) in
 
             if let e = error {
                 print("error \(e)")
@@ -123,7 +84,7 @@ class StatsViewController: UIViewController {
     func downloadLevelImageFromURL(level: String) {
         let session = URLSession(configuration: .default)
         let imageURL = URL(string: level)
-        let getImage = session.dataTask(with: imageURL!) { (data, response, error) in
+        session.dataTask(with: imageURL!) { (data, response, error) in
 
             if let e = error {
                 print("error \(e)")
@@ -150,6 +111,49 @@ class StatsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
+
+//MARK: - TableView configuration
+
+extension StatsViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//        let today = Calendar.current.date(byAdding: .hour, value: -3, to: Date())!
+//
+//        let header = view as! UITableViewHeaderFooterView
+//        header.textLabel?.textAlignment = .center
+//
+//        let dateFormatter = DateHelper.createDateFormatter(local: "pt_BR", format: "EEEE, dd' de 'MMMM")
+//        let sectionTitle = dateFormatter.string(from: today)
+//
+//        if(ptSections[section] == sectionTitle) {
+//            header.contentView.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.5058823529, blue: 0.4588235294, alpha: 1)
+//            header.textLabel?.textColor = UIColor.white
+//        } else {
+//            header.contentView.backgroundColor = #colorLiteral(red: 0.9137254902, green: 0.9137254902, blue: 0.9137254902, alpha: 1)
+//            header.textLabel?.textColor = UIColor.black
+//        }
+    }
+
+}
+
+extension StatsViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PlayerCell
+        cell.player = self.player
+        return cell
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+
 
 
 }

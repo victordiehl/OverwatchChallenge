@@ -14,6 +14,7 @@
 		1F1DA40D1FB1E4B000EBBC52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F1DA40B1FB1E4B000EBBC52 /* LaunchScreen.storyboard */; };
 		ABE5186F1FB6239A0097B2CB /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5186E1FB6239A0097B2CB /* StatsViewController.swift */; };
 		ABE518711FB623B70097B2CB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE518701FB623B70097B2CB /* Player.swift */; };
+		ABE518731FB645E60097B2CB /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE518721FB645E60097B2CB /* PlayerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1F1DA40E1FB1E4B000EBBC52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ABE5186E1FB6239A0097B2CB /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		ABE518701FB623B70097B2CB /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		ABE518721FB645E60097B2CB /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				1F1DA4041FB1E4B000EBBC52 /* ViewController.swift */,
 				ABE5186E1FB6239A0097B2CB /* StatsViewController.swift */,
 				ABE518701FB623B70097B2CB /* Player.swift */,
+				ABE518721FB645E60097B2CB /* PlayerCell.swift */,
 				1F1DA4061FB1E4B000EBBC52 /* Main.storyboard */,
 				1F1DA4091FB1E4B000EBBC52 /* Assets.xcassets */,
 				1F1DA40B1FB1E4B000EBBC52 /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 				1F1DA4051FB1E4B000EBBC52 /* ViewController.swift in Sources */,
 				ABE5186F1FB6239A0097B2CB /* StatsViewController.swift in Sources */,
 				1F1DA4031FB1E4B000EBBC52 /* AppDelegate.swift in Sources */,
+				ABE518731FB645E60097B2CB /* PlayerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Overwatch: Decodable {
+struct PlayerStats: Decodable {
     var us: Continent?
     var eu: Continent?
     var kr: Continent?
@@ -50,7 +50,6 @@ struct GameStats: Decodable {
     var time_played: Double?
     var games_played: Int?
     var games_lost: Int?
-    var games_tied: Int?
     var final_blows: Int?
     var offensive_assists: Int?
     var games_won: Int?
@@ -64,4 +63,3 @@ struct GameStats: Decodable {
     var multikill_best: Int?
     var medals: Int?
 }
-
