@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var aplicationIcon: UIImageView!
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var backgroundView: UIView!
@@ -35,5 +36,17 @@ class ViewController: UIViewController {
         self.navigationController?.view.tintColor = #colorLiteral(red: 1, green: 0.6123600006, blue: 0.009494521655, alpha: 1)
     }
 
-}
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationViewController = segue.destination as! StatsViewController
+        destinationViewController.playerID = textField.text!
+    }
+}

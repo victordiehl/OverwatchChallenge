@@ -10,7 +10,7 @@ import UIKit
 
 class StatsViewController: UIViewController {
 
-    var playerID: String = "zza-11231"
+    var playerID = "zza-11231"
     var player: PlayerStats!
 
     @IBOutlet weak var tableView: UITableView!
@@ -24,10 +24,13 @@ class StatsViewController: UIViewController {
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var prestigeLabel: UILabel!
     @IBOutlet weak var comprankLabel: UILabel!
+    @IBOutlet weak var winrateLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         loadPlayerData()
     }
 
@@ -38,26 +41,40 @@ class StatsViewController: UIViewController {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else { return }
 
-            do {
-                let result = try JSONDecoder().decode(PlayerStats.self, from: data)
-                self.player = result
+            if let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode == 404 {
+                } else {
+                    do {
+                        let result = try JSONDecoder().decode(PlayerStats.self, from: data)
+                        self.player = result
 
-                DispatchQueue.main.async {
-                    self.downloadAvatarImageFromURL(avatar: (result.us?.stats.competitive.overall_stats.avatar)!)
-                    self.downloadLevelImageFromURL(level: (result.us?.stats.competitive.overall_stats.rank_image)!)
+                        DispatchQueue.main.async {
 
-                    self.tableView.reloadData()
+                            self.prestigeLabel.text = "Prestige \(result.us?.stats.competitive.overall_stats.prestige! ?? 0)"
+                            self.comprankLabel.text = result.us?.stats.competitive.overall_stats.comprank!.description ?? "0"
+                            self.levelLabel.text = result.us?.stats.competitive.overall_stats.level!.description ?? "0"
+                            self.gamesWonLabel.text = result.us?.stats.competitive.overall_stats.games!.description ?? "0"
+                            self.nicknameLabel.text = self.playerID
+                            self.winrateLabel.text = result.us?.stats.competitive.overall_stats.win_rate!.description ?? "0"
+
+                            self.downloadAvatarImageFromURL(avatar: (result.us?.stats.competitive.overall_stats.avatar)!)
+                            self.downloadLevelImageFromURL(level: (result.us?.stats.competitive.overall_stats.rank_image)!)
+
+                            self.tableView.reloadData()
+                        }
+
+                    } catch let jsonError {
+                        print(jsonError)
+                    }
                 }
-
-            } catch let jsonError {
-                print(jsonError)
             }
-            }.resume()
+        }.resume()
     }
 
     func downloadAvatarImageFromURL(avatar: String) {
         let session = URLSession(configuration: .default)
         let imageURL = URL(string: avatar)
+
         session.dataTask(with: imageURL!) { (data, response, error) in
 
             if let e = error {
@@ -84,6 +101,7 @@ class StatsViewController: UIViewController {
     func downloadLevelImageFromURL(level: String) {
         let session = URLSession(configuration: .default)
         let imageURL = URL(string: level)
+
         session.dataTask(with: imageURL!) { (data, response, error) in
 
             if let e = error {
@@ -109,39 +127,19 @@ class StatsViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
 //MARK: - TableView configuration
 
-extension StatsViewController: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//        let today = Calendar.current.date(byAdding: .hour, value: -3, to: Date())!
-//
-//        let header = view as! UITableViewHeaderFooterView
-//        header.textLabel?.textAlignment = .center
-//
-//        let dateFormatter = DateHelper.createDateFormatter(local: "pt_BR", format: "EEEE, dd' de 'MMMM")
-//        let sectionTitle = dateFormatter.string(from: today)
-//
-//        if(ptSections[section] == sectionTitle) {
-//            header.contentView.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.5058823529, blue: 0.4588235294, alpha: 1)
-//            header.textLabel?.textColor = UIColor.white
-//        } else {
-//            header.contentView.backgroundColor = #colorLiteral(red: 0.9137254902, green: 0.9137254902, blue: 0.9137254902, alpha: 1)
-//            header.textLabel?.textColor = UIColor.black
-//        }
-    }
-
-}
-
 extension StatsViewController: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
-
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -149,11 +147,5 @@ extension StatsViewController: UITableViewDataSource {
         cell.player = self.player
         return cell
     }
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-
-
 
 }
