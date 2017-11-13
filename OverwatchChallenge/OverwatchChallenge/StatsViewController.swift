@@ -49,17 +49,12 @@ class StatsViewController: UIViewController {
 
             if let httpResponse = response as? HTTPURLResponse {
                 if httpResponse.statusCode == 404 {
-                    let alertController = UIAlertController(title: "Usuário não encontrado", message: "Verifique seu nickname", preferredStyle: .alert)
-                    print("idhaiwohdioawdioaw")
+                    let alertController = UIAlertController(title: "Usuário não encontrado", message: "Verifique o nickname digitado", preferredStyle: .alert)
                     
-                    // Create the actions
-                    let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+                    let okAction = UIAlertAction(title: "OK", style: .default) {
                         UIAlertAction in
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerA") as! ViewController
-                        self.present(vc, animated: true, completion: nil)
-
+                        self.performSegue(withIdentifier: "backToSearch", sender: self)
                     }
-                    // Add the actions
                     alertController.addAction(okAction)
                     
                     // Present the controller

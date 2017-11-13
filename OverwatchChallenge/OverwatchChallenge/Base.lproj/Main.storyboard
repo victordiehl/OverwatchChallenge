@@ -515,9 +515,11 @@
                         <outlet property="prestigeLabel" destination="Jtf-Q3-lIZ" id="FYc-eV-e0M"/>
                         <outlet property="tableView" destination="cVI-9D-8se" id="11K-1q-szT"/>
                         <outlet property="winrateLabel" destination="Bmx-o5-8Fd" id="dff-ck-SEY"/>
+                        <segue destination="HnS-Dc-Yn6" kind="unwind" identifier="backToSearch" unwindAction="backToViewController:" id="whU-FX-sP9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="STZ-xI-Hka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="HnS-Dc-Yn6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="28" y="-125.4872563718141"/>
         </scene>

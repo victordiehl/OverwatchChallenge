@@ -49,4 +49,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let destinationViewController = segue.destination as! StatsViewController
         destinationViewController.playerID = textField.text!
     }
+    
+    @IBAction func backToViewController(_ sender: UIStoryboardSegue) {
+        let vc = sender.source as! StatsViewController
+    }
 }
+
+
