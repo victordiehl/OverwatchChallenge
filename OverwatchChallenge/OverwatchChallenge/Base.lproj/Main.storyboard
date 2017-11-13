@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OverwatchChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewControllerA" id="BYZ-38-t0r" customClass="ViewController" customModule="OverwatchChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -486,11 +486,17 @@
                                     <outlet property="dataSource" destination="VuO-aj-6gm" id="kZK-vN-bgD"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Z8X-zj-TaQ">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.99215686270000003" green="0.54117647059999996" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1cH-gY-ViP" firstAttribute="trailing" secondItem="cir-DS-PJd" secondAttribute="trailing" id="XNq-o8-pZZ"/>
+                            <constraint firstItem="Z8X-zj-TaQ" firstAttribute="centerX" secondItem="n56-Tb-7U9" secondAttribute="centerX" id="dGI-U9-eTw"/>
                             <constraint firstItem="1cH-gY-ViP" firstAttribute="top" secondItem="cir-DS-PJd" secondAttribute="top" constant="-64" id="eJm-Sh-WRI"/>
+                            <constraint firstItem="Z8X-zj-TaQ" firstAttribute="centerY" secondItem="n56-Tb-7U9" secondAttribute="centerY" id="tlq-rL-EvV"/>
                             <constraint firstItem="1cH-gY-ViP" firstAttribute="leading" secondItem="cir-DS-PJd" secondAttribute="leading" id="uvY-S4-mg6"/>
                             <constraint firstItem="1cH-gY-ViP" firstAttribute="bottom" secondItem="cir-DS-PJd" secondAttribute="bottom" id="vO1-Lh-UDH"/>
                         </constraints>
@@ -498,6 +504,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Z8X-zj-TaQ" id="WEv-yy-EM3"/>
                         <outlet property="avatarImage" destination="wZJ-0y-CLP" id="VRl-ZV-L4C"/>
                         <outlet property="comprankImage" destination="Y9J-rL-tjT" id="Qvt-qv-IZa"/>
                         <outlet property="comprankLabel" destination="H9c-8b-jCH" id="t8y-pO-lBx"/>

@@ -18,7 +18,8 @@ class StatsViewController: UIViewController {
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var levelImage: UIImageView!
     @IBOutlet weak var comprankImage: UIImageView!
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var gamesWonLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
@@ -31,8 +32,13 @@ class StatsViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        activityIndicator.color = UIColor.orange
+        activityIndicator.startAnimating()
         loadPlayerData()
+ 
     }
+    
+    
 
     func loadPlayerData() {
         let urlString = "https://owapi.net/api/v3/u/\(playerID)/stats"
@@ -43,6 +49,23 @@ class StatsViewController: UIViewController {
 
             if let httpResponse = response as? HTTPURLResponse {
                 if httpResponse.statusCode == 404 {
+                    let alertController = UIAlertController(title: "Usuário não encontrado", message: "Verifique seu nickname", preferredStyle: .alert)
+                    print("idhaiwohdioawdioaw")
+                    
+                    // Create the actions
+                    let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+                        UIAlertAction in
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerA") as! ViewController
+                        self.present(vc, animated: true, completion: nil)
+
+                    }
+                    // Add the actions
+                    alertController.addAction(okAction)
+                    
+                    // Present the controller
+                    self.present(alertController, animated: true, completion: nil)
+                    self.activityIndicator.stopAnimating()
+                    
                 } else {
                     do {
                         let result = try JSONDecoder().decode(PlayerStats.self, from: data)
@@ -73,8 +96,9 @@ class StatsViewController: UIViewController {
 
                             self.downloadAvatarImageFromURL(avatar: (result.us?.stats.competitive.overall_stats.avatar)!)
                             self.downloadLevelImageFromURL(level: (result.us?.stats.competitive.overall_stats.rank_image)!)
-
+                            self.activityIndicator.stopAnimating()
                             self.tableView.reloadData()
+                            
                         }
 
                     } catch let jsonError {
@@ -83,6 +107,7 @@ class StatsViewController: UIViewController {
                 }
             }
         }.resume()
+        
     }
 
     func downloadAvatarImageFromURL(avatar: String) {
