@@ -50,12 +50,26 @@ class StatsViewController: UIViewController {
 
                         DispatchQueue.main.async {
 
-                            self.prestigeLabel.text = "Prestige \(result.us?.stats.competitive.overall_stats.prestige! ?? 0)"
-                            self.comprankLabel.text = result.us?.stats.competitive.overall_stats.comprank!.description ?? "0"
-                            self.levelLabel.text = result.us?.stats.competitive.overall_stats.level!.description ?? "0"
-                            self.gamesWonLabel.text = result.us?.stats.competitive.overall_stats.games!.description ?? "0"
+                            self.prestigeLabel.text = "Prestige \(result.us?.stats.competitive.overall_stats.prestige ?? 0)"
+                            self.comprankLabel.text = result.us?.stats.competitive.overall_stats.comprank?.description ?? "0"
+                            self.levelLabel.text = result.us?.stats.competitive.overall_stats.level?.description ?? "0"
+                            self.gamesWonLabel.text = result.us?.stats.competitive.overall_stats.games?.description ?? "0"
                             self.nicknameLabel.text = self.playerID
-                            self.winrateLabel.text = result.us?.stats.competitive.overall_stats.win_rate!.description ?? "0"
+                            self.winrateLabel.text = result.us?.stats.competitive.overall_stats.win_rate?.description ?? "0"
+                            
+                            switch(result.us?.stats.competitive.overall_stats.tier){
+                            case nil:  self.comprankImage.image = #imageLiteral(resourceName: "bronze")
+                            case "bronze"?: self.comprankImage.image = #imageLiteral(resourceName: "bronze")
+                            case "silver"?: self.comprankImage.image = #imageLiteral(resourceName: "silver")
+                            case "gold"?: self.comprankImage.image = #imageLiteral(resourceName: "gold")
+                            case "platinum"?: self.comprankImage.image = #imageLiteral(resourceName: "platinum")
+                            case "diamond"?: self.comprankImage.image = #imageLiteral(resourceName: "diamond")
+                            case "master"?: self.comprankImage.image = #imageLiteral(resourceName: "master")
+                            case "grandmaster"?: self.comprankImage.image = #imageLiteral(resourceName: "grandmaster")
+                            default: self.comprankImage.image = #imageLiteral(resourceName: "bronze")
+                            
+                            }
+                            
 
                             self.downloadAvatarImageFromURL(avatar: (result.us?.stats.competitive.overall_stats.avatar)!)
                             self.downloadLevelImageFromURL(level: (result.us?.stats.competitive.overall_stats.rank_image)!)
