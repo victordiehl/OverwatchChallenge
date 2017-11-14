@@ -9,10 +9,10 @@
 import UIKit
 
 class StatsViewController: UIViewController {
-
+    
     var playerID = "zza-11231"
     var player: PlayerStats!
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var avatarImage: UIImageView!
@@ -26,38 +26,46 @@ class StatsViewController: UIViewController {
     @IBOutlet weak var prestigeLabel: UILabel!
     @IBOutlet weak var comprankLabel: UILabel!
     @IBOutlet weak var winrateLabel: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         activityIndicator.color = UIColor.orange
         activityIndicator.startAnimating()
         loadPlayerData()
- 
     }
     
-    
-
     func loadPlayerData() {
         let urlString = "https://owapi.net/api/v3/u/\(playerID)/stats"
         guard let url = URL(string: urlString) else { return }
-
+        
         URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data else { return }
-
+            guard let data = data else {
+                let alertController = UIAlertController(title: "Erro de conexão", message: "Verifique sua conexão e tente novamente", preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "Voltar", style: .default) {
+                    UIAlertAction in
+                    self.performSegue(withIdentifier: "backToSearch", sender: self)
+                }
+                alertController.addAction(action)
+                
+                self.present(alertController, animated: true, completion: nil)
+                self.activityIndicator.stopAnimating()
+                return
+            }
+            
             if let httpResponse = response as? HTTPURLResponse {
                 if httpResponse.statusCode == 404 {
                     let alertController = UIAlertController(title: "Usuário não encontrado", message: "Verifique o nickname digitado", preferredStyle: .alert)
                     
-                    let okAction = UIAlertAction(title: "OK", style: .default) {
+                    let action = UIAlertAction(title: "Voltar", style: .default) {
                         UIAlertAction in
                         self.performSegue(withIdentifier: "backToSearch", sender: self)
                     }
-                    alertController.addAction(okAction)
+                    alertController.addAction(action)
                     
-                    // Present the controller
                     self.present(alertController, animated: true, completion: nil)
                     self.activityIndicator.stopAnimating()
                     
@@ -65,9 +73,9 @@ class StatsViewController: UIViewController {
                     do {
                         let result = try JSONDecoder().decode(PlayerStats.self, from: data)
                         self.player = result
-
+                        
                         DispatchQueue.main.async {
-
+                            
                             self.prestigeLabel.text = "Prestige \(result.us?.stats.competitive.overall_stats.prestige ?? 0)"
                             self.comprankLabel.text = result.us?.stats.competitive.overall_stats.comprank?.description ?? "0"
                             self.levelLabel.text = result.us?.stats.competitive.overall_stats.level?.description ?? "0"
@@ -85,38 +93,37 @@ class StatsViewController: UIViewController {
                             case "master"?: self.comprankImage.image = #imageLiteral(resourceName: "master")
                             case "grandmaster"?: self.comprankImage.image = #imageLiteral(resourceName: "grandmaster")
                             default: self.comprankImage.image = #imageLiteral(resourceName: "bronze")
-                            
+                                
                             }
                             
-
                             self.downloadAvatarImageFromURL(avatar: (result.us?.stats.competitive.overall_stats.avatar)!)
                             self.downloadLevelImageFromURL(level: (result.us?.stats.competitive.overall_stats.rank_image)!)
                             self.activityIndicator.stopAnimating()
                             self.tableView.reloadData()
                             
                         }
-
+                        
                     } catch let jsonError {
                         print(jsonError)
                     }
+                    
                 }
             }
-        }.resume()
-        
+            }.resume()
     }
-
+    
     func downloadAvatarImageFromURL(avatar: String) {
         let session = URLSession(configuration: .default)
         let imageURL = URL(string: avatar)
-
+        
         session.dataTask(with: imageURL!) { (data, response, error) in
-
+            
             if let e = error {
                 print("error \(e)")
-
+                
             } else {
                 DispatchQueue.main.async {
-
+                    
                     if (response as? HTTPURLResponse) != nil {
                         if let imageData = data {
                             let image = UIImage(data: imageData)
@@ -131,19 +138,19 @@ class StatsViewController: UIViewController {
             }
             }.resume()
     }
-
+    
     func downloadLevelImageFromURL(level: String) {
         let session = URLSession(configuration: .default)
         let imageURL = URL(string: level)
-
+        
         session.dataTask(with: imageURL!) { (data, response, error) in
-
+            
             if let e = error {
                 print("error \(e)")
-
+                
             } else {
                 DispatchQueue.main.async {
-
+                    
                     if (response as? HTTPURLResponse) != nil {
                         if let imageData = data {
                             let image = UIImage(data: imageData)
@@ -158,7 +165,7 @@ class StatsViewController: UIViewController {
             }
             }.resume()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -167,19 +174,19 @@ class StatsViewController: UIViewController {
 //MARK: - TableView configuration
 
 extension StatsViewController: UITableViewDataSource {
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PlayerCell
         cell.player = self.player
         return cell
     }
-
+    
 }

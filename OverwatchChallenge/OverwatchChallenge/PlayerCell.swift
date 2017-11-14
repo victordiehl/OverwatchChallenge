@@ -11,7 +11,6 @@ import UIKit
 class PlayerCell: UITableViewCell {
     
     //Competitive
-   
     @IBOutlet weak var multikillLabel: UILabel!
     @IBOutlet weak var timeplayedLabel: UILabel!
     @IBOutlet weak var gamesplayedLabel: UILabel!
@@ -25,8 +24,6 @@ class PlayerCell: UITableViewCell {
     @IBOutlet weak var medalsLabel: UILabel!
     
     //Quickplay
-    
-
     @IBOutlet weak var timeplayedLabelQuick: UILabel!
     @IBOutlet weak var finalblowsLabelQuick: UILabel!
     @IBOutlet weak var offsensiveassistsLabelQuick: UILabel!

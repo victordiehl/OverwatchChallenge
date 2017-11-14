@@ -13,21 +13,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var aplicationIcon: UIImageView!
     @IBOutlet weak var userTextField: UITextField!
-    @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var helpTextView: UITextView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         navBar()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func searchUser(_ sender: Any) {
     }
-
+    
     func navBar() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -35,16 +34,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.view.backgroundColor = .clear
         self.navigationController?.view.tintColor = #colorLiteral(red: 1, green: 0.6123600006, blue: 0.009494521655, alpha: 1)
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.5) {
+            self.bottomConstraint.constant = self.bottomConstraint.constant + 80
+            self.topConstraint.constant = self.topConstraint.constant - 80
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.5) {
+            self.bottomConstraint.constant = self.bottomConstraint.constant - 80
+            self.topConstraint.constant = self.topConstraint.constant + 80
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationViewController = segue.destination as! StatsViewController
         destinationViewController.playerID = textField.text!
@@ -53,5 +68,3 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func backToViewController(_ sender: UIStoryboardSegue) {
     }
 }
-
-
