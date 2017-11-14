@@ -51,7 +51,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func backToViewController(_ sender: UIStoryboardSegue) {
-        let vc = sender.source as! StatsViewController
     }
 }
 
