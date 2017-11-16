@@ -76,7 +76,7 @@ class StatsViewController: UIViewController {
                         
                         DispatchQueue.main.async {
                             
-                            self.prestigeLabel.text = "Prestige \(result.us?.stats.competitive.overall_stats.prestige ?? 0)"
+                            self.prestigeLabel.text = "\(NSLocalizedString("Prestigio ", comment: ""))\(result.us?.stats.competitive.overall_stats.prestige ?? 0)"
                             self.comprankLabel.text = result.us?.stats.competitive.overall_stats.comprank?.description ?? "0"
                             self.levelLabel.text = result.us?.stats.competitive.overall_stats.level?.description ?? "0"
                             self.gamesWonLabel.text = result.us?.stats.competitive.overall_stats.games?.description ?? "0"

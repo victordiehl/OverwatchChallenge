@@ -1,0 +1,174 @@
+
+/* Class = "UILabel"; text = "Deaths"; ObjectID = "4vJ-6o-JdT"; */
+"4vJ-6o-JdT.text" = "Deaths";
+
+/* Class = "UIButton"; normalTitle = "SEARCH"; ObjectID = "5KI-iG-KRG"; */
+"5KI-iG-KRG.normalTitle" = "SEARCH";
+
+/* Class = "UILabel"; text = "Time Played"; ObjectID = "5Kk-mX-VUH"; */
+"5Kk-mX-VUH.text" = "Time Played";
+
+/* Class = "UILabel"; text = "Games Played"; ObjectID = "78v-5f-Ih6"; */
+"78v-5f-Ih6.text" = "Games Played";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "974-Vn-49Y"; */
+"974-Vn-49Y.text" = "Value";
+
+/* Class = "UILabel"; text = "Kill Streak Best"; ObjectID = "9Rs-cG-aCg"; */
+"9Rs-cG-aCg.text" = "Kill Streak Best";
+
+/* Class = "UILabel"; text = "Medals"; ObjectID = "9U7-zl-7v0"; */
+"9U7-zl-7v0.text" = "Medals";
+
+/* Class = "UILabel"; text = "Final Blows"; ObjectID = "9lU-aa-Ltd"; */
+"9lU-aa-Ltd.text" = "Final Blows";
+
+/* Class = "UILabel"; text = "Eliminations"; ObjectID = "9yS-v6-wXZ"; */
+"9yS-v6-wXZ.text" = "Eliminations";
+
+/* Class = "UILabel"; text = "Win Rate"; ObjectID = "BIh-x8-wQy"; */
+"BIh-x8-wQy.text" = "Win Rate";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "Bmx-o5-8Fd"; */
+"Bmx-o5-8Fd.text" = "0";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "Bsd-Oy-FUc"; */
+"Bsd-Oy-FUc.text" = "Value";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "C8B-LI-y6B"; */
+"C8B-LI-y6B.text" = "Value";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "H9c-8b-jCH"; */
+"H9c-8b-jCH.text" = "0";
+
+/* Class = "UILabel"; text = "Enter your nickname and Battletag using the example below. Nicknames ara case-sensitive."; ObjectID = "IWV-SY-jMs"; */
+"IWV-SY-jMs.text" = "Enter your nickname and Battletag using the example below. Nicknames ara case-sensitive.";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "Izb-do-f7i"; */
+"Izb-do-f7i.text" = "Value";
+
+/* Class = "UILabel"; text = "Prestige 0"; ObjectID = "Jtf-Q3-lIZ"; */
+"Jtf-Q3-lIZ.text" = "Prestige 0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "MYA-bM-IHd"; */
+"MYA-bM-IHd.text" = "0";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "PQT-3T-8ie"; */
+"PQT-3T-8ie.text" = "Value";
+
+/* Class = "UILabel"; text = "Offensive Assists"; ObjectID = "PZb-Jz-ec0"; */
+"PZb-Jz-ec0.text" = "Offensive Assists";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "Q9N-g7-6vY"; */
+"Q9N-g7-6vY.text" = "Value";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "Qrf-f4-V9g"; */
+"Qrf-f4-V9g.text" = "Value";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "Qtm-vH-gm6"; */
+"Qtm-vH-gm6.text" = "Value";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "R80-vV-opO"; */
+"R80-vV-opO.text" = "Value";
+
+/* Class = "UILabel"; text = "KPD"; ObjectID = "RJc-mb-PTA"; */
+"RJc-mb-PTA.text" = "KPD";
+
+/* Class = "UILabel"; text = "Final Blows"; ObjectID = "SQB-3K-5tp"; */
+"SQB-3K-5tp.text" = "Final Blows";
+
+/* Class = "UILabel"; text = "KPD"; ObjectID = "STl-nE-PLm"; */
+"STl-nE-PLm.text" = "KPD";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "UYh-la-V5B"; */
+"UYh-la-V5B.text" = "Value";
+
+/* Class = "UILabel"; text = "Deaths"; ObjectID = "Vb1-wn-g93"; */
+"Vb1-wn-g93.text" = "Deaths";
+
+/* Class = "UIViewController"; title = "Player Stats"; ObjectID = "VuO-aj-6gm"; */
+"VuO-aj-6gm.title" = "Player Stats";
+
+/* Class = "UITextField"; placeholder = "TheMrMachine-1431"; ObjectID = "XWq-KR-45X"; */
+"XWq-KR-45X.placeholder" = "TheMrMachine-1431";
+
+/* Class = "UITextField"; text = "zza-11231"; ObjectID = "XWq-KR-45X"; */
+"XWq-KR-45X.text" = "zza-11231";
+
+/* Class = "UILabel"; text = "Overwatcher"; ObjectID = "YAt-GI-sLH"; */
+"YAt-GI-sLH.text" = "Overwatcher";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "Ym8-nB-cua"; */
+"Ym8-nB-cua.text" = "Value";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "Z0n-Lh-CCV"; */
+"Z0n-Lh-CCV.text" = "Value";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "Z5i-eq-m31"; */
+"Z5i-eq-m31.text" = "Value";
+
+/* Class = "UILabel"; text = "Medals"; ObjectID = "aFj-gZ-T8S"; */
+"aFj-gZ-T8S.text" = "Medals";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "cPh-Qt-MIR"; */
+"cPh-Qt-MIR.text" = "Value";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "d3E-1m-Ipi"; */
+"d3E-1m-Ipi.text" = "Value";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "g6h-ub-XFZ"; */
+"g6h-ub-XFZ.text" = "0";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "g8l-Vo-OJg"; */
+"g8l-Vo-OJg.text" = "Value";
+
+/* Class = "UILabel"; text = "Multikill"; ObjectID = "gDN-6h-e0F"; */
+"gDN-6h-e0F.text" = "Multikill";
+
+/* Class = "UILabel"; text = "Eliminations"; ObjectID = "hQH-Jn-fpr"; */
+"hQH-Jn-fpr.text" = "Eliminations";
+
+/* Class = "UILabel"; text = "Solo Kills"; ObjectID = "hjA-mA-xJ9"; */
+"hjA-mA-xJ9.text" = "Solo Kills";
+
+/* Class = "UILabel"; text = "Kill Streak Best"; ObjectID = "iOu-D3-DJK"; */
+"iOu-D3-DJK.text" = "Kill Streak Best";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "kDf-JX-t9m"; */
+"kDf-JX-t9m.text" = "Value";
+
+/* Class = "UILabel"; text = "Time Played"; ObjectID = "khi-GE-K4S"; */
+"khi-GE-K4S.text" = "Time Played";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "lrj-NP-tFX"; */
+"lrj-NP-tFX.text" = "Value";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "m1w-CG-dvb"; */
+"m1w-CG-dvb.text" = "Value";
+
+/* Class = "UILabel"; text = "Multikill"; ObjectID = "mGk-lQ-WZq"; */
+"mGk-lQ-WZq.text" = "Multikill";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "mYr-Jr-tAo"; */
+"mYr-Jr-tAo.text" = "Value";
+
+/* Class = "UILabel"; text = "Quickplay"; ObjectID = "qLf-nS-End"; */
+"qLf-nS-End.text" = "Quickplay";
+
+/* Class = "UILabel"; text = "Offensive Assists"; ObjectID = "qYD-jr-hJN"; */
+"qYD-jr-hJN.text" = "Offensive Assists";
+
+/* Class = "UILabel"; text = "Games Won"; ObjectID = "tC6-Yb-wo4"; */
+"tC6-Yb-wo4.text" = "Games Won";
+
+/* Class = "UILabel"; text = "Solo Kills"; ObjectID = "u5a-pr-m5d"; */
+"u5a-pr-m5d.text" = "Solo Kills";
+
+/* Class = "UILabel"; text = "Competitive"; ObjectID = "vhz-c7-8uo"; */
+"vhz-c7-8uo.text" = "Competitive";
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "wh1-fw-6v1"; */
+"wh1-fw-6v1.text" = "Value";
+
+/* Class = "UILabel"; text = "Nickname"; ObjectID = "xWN-PX-GN6"; */
+"xWN-PX-GN6.text" = "Nickname";
