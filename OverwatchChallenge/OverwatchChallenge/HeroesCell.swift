@@ -10,6 +10,21 @@ import UIKit
 
 class HeroesCell: UITableViewCell {
 
+    @IBOutlet weak var heroesImageView: UIImageView!
+    @IBOutlet weak var heroesNameLabel: UILabel!
+    @IBOutlet weak var timePlayedLabel: UILabel!
+    
+    
+    var player: PlayerStats? {
+        didSet {
+            configureCell()
+        }
+    }
+    
+    func configureCell() {
+
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
